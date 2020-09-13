@@ -34,3 +34,7 @@ Options:
 - For normal Cloudflare DDoS prevention mechanism, it needs to wait for 5 seconds to get cookie.
 
 - If reCAPTCHA challenge is implemented on top, please use `-s` option to prompt browser and resolve reCAPTCHA challenge manually.
+
+---
+
+<a href="https://www.buymeacoffee.com/kevcui" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-orange.png" alt="Buy Me A Coffee" height="60px" width="217px"></a>
