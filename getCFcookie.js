@@ -30,7 +30,7 @@ const hMode = (program.show === undefined) ? true : false;
   const browser = await puppeteer.launch({executablePath: cPath, headless: hMode});
   const page = await browser.newPage();
   await page.setUserAgent(program.agent);
-  await page.goto(program.url, {timeout: 30000, waitUntil: 'domcontentloaded'});
+  await page.goto(program.url, {timeout: 60000, waitUntil: 'domcontentloaded'});
   await page.waitForNavigation();
   const cookie = await page.cookies();
   console.log(JSON.stringify(cookie));
