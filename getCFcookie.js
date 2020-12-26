@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 
 const program = require('commander');
-const puppeteer = require('puppeteer-core');
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+puppeteer.use(StealthPlugin());
 
 program
   .name('./getCFcookie.js')
