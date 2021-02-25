@@ -14,25 +14,26 @@ program
   .option('-s, --show', 'optional, show browser\ndefault not show');
 
 program.parse(process.argv);
+const options = program.opts();
 
-if (program.url === undefined) {
+if (options.url === undefined) {
   console.log("[ERROR] -u <url> is undefined!");
   process.exit(1);
 }
 
-if (program.agent === undefined) {
+if (options.agent === undefined) {
   console.log("[ERROR] -a <user_agent> is undefined!");
   process.exit(1);
 }
 
-const cPath = (program.path === undefined) ? '/usr/bin/chromium' : program.path;
-const hMode = (program.show === undefined) ? true : false;
+const cPath = (options.path === undefined) ? '/usr/bin/chromium' : options.path;
+const hMode = (options.show === undefined) ? true : false;
 
 (async() => {
   const browser = await puppeteer.launch({executablePath: cPath, headless: hMode});
   const page = await browser.newPage();
-  await page.setUserAgent(program.agent);
-  await page.goto(program.url, {timeout: 60000, waitUntil: 'domcontentloaded'});
+  await page.setUserAgent(options.agent);
+  await page.goto(options.url, {timeout: 60000, waitUntil: 'domcontentloaded'});
   await page.waitForNavigation();
   const cookie = await page.cookies();
   console.log(JSON.stringify(cookie));
