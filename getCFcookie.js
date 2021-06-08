@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+process.removeAllListeners('warning');
 const program = require('commander');
 const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
